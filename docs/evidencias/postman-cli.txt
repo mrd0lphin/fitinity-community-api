@@ -1,0 +1,320 @@
+
+> fitinity-community-api@1.0.0 test:postman
+> node scripts/test-postman.js --report
+
+Migração aplicada: 001_initial.sql
+Executando coleção Postman completa em PostgreSQL e API temporários isolados.
+Running your collection...
+postman
+
+Fitinity Community - demonstração e testes
+
+Folder 01 - Fluxo principal (executar em ordem)
+Sub-folder 00 - Saúde
+
+  GET http://127.0.0.1:51318/health [200 OK, 644 B, 41 ms]
+  Pass  HTTP 200
+
+Sub-folder 01 - Cadastrar usuário A
+
+  POST http://127.0.0.1:51318/api/auth/register [201 Created, 790 B, 18 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 02 - Recusar e-mail duplicado
+
+  POST http://127.0.0.1:51318/api/auth/register [409 Conflict, 684 B, 8 ms]
+  Pass  HTTP 409
+  Pass  Envelope de erro
+
+Sub-folder 03 - Cadastrar usuário B
+
+  POST http://127.0.0.1:51318/api/auth/register [201 Created, 794 B, 16 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 04 - Recusar login inválido
+
+  POST http://127.0.0.1:51318/api/auth/login [401 Unauthorized, 680 B, 8 ms]
+  Pass  HTTP 401
+  Pass  Envelope de erro
+
+Sub-folder 05 - Login usuário A
+
+  POST http://127.0.0.1:51318/api/auth/login [200 OK, 1 KB, 9 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 06 - Login usuário B
+
+  POST http://127.0.0.1:51318/api/auth/login [200 OK, 1.01 KB, 5 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 07 - Recusar perfil sem token
+
+  GET http://127.0.0.1:51318/api/users/me [401 Unauthorized, 685 B, 2 ms]
+  Pass  HTTP 401
+  Pass  Envelope de erro
+
+Sub-folder 08 - Recusar token inválido
+
+  GET http://127.0.0.1:51318/api/users/me [401 Unauthorized, 681 B, 3 ms]
+  Pass  HTTP 401
+  Pass  Envelope de erro
+
+Sub-folder 09 - Consultar perfil A
+
+  GET http://127.0.0.1:51318/api/users/me [200 OK, 785 B, 4 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+  Pass  Usuário correto
+
+Sub-folder 10 - Atualizar perfil A
+
+  PATCH http://127.0.0.1:51318/api/users/me [200 OK, 788 B, 4 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 11 - Criar publicação A
+
+  POST http://127.0.0.1:51318/api/posts [201 Created, 891 B, 8 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 12 - Listar publicações paginadas
+
+  GET http://127.0.0.1:51318/api/posts?page=1&limit=10 [200 OK, 948 B, 9 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+  Pass  Paginação presente
+
+Sub-folder 13 - Consultar publicação
+
+  GET http://127.0.0.1:51318/api/posts/1 [200 OK, 886 B, 4 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 14 - Bloquear edição da publicação alheia
+
+  PATCH http://127.0.0.1:51318/api/posts/1 [403 Forbidden, 702 B, 3 ms]
+  Pass  HTTP 403
+  Pass  Envelope de erro
+
+Sub-folder 15 - Bloquear exclusão da publicação alheia
+
+  DELETE http://127.0.0.1:51318/api/posts/1 [403 Forbidden, 702 B, 3 ms]
+  Pass  HTTP 403
+  Pass  Envelope de erro
+
+Sub-folder 16 - Editar publicação própria
+
+  PATCH http://127.0.0.1:51318/api/posts/1 [200 OK, 893 B, 5 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 17 - Curtir como B
+
+  POST http://127.0.0.1:51318/api/posts/1/likes [201 Created, 683 B, 4 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 18 - Repetir curtida sem duplicar
+
+  POST http://127.0.0.1:51318/api/posts/1/likes [200 OK, 678 B, 3 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 19 - Remover curtida
+
+  DELETE http://127.0.0.1:51318/api/posts/1/likes [204 No Content, 496 B, 3 ms]
+  Pass  HTTP 204
+
+Sub-folder 20 - Repetir remoção da curtida
+
+  DELETE http://127.0.0.1:51318/api/posts/1/likes [204 No Content, 496 B, 3 ms]
+  Pass  HTTP 204
+
+Sub-folder 21 - Criar comentário B
+
+  POST http://127.0.0.1:51318/api/posts/1/comments [201 Created, 814 B, 4 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 22 - Listar comentários
+
+  GET http://127.0.0.1:51318/api/posts/1/comments?page=1&limit=10 [200 OK, 872 B, 4 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 23 - Bloquear edição do comentário alheio
+
+  PATCH http://127.0.0.1:51318/api/comments/1 [403 Forbidden, 702 B, 4 ms]
+  Pass  HTTP 403
+  Pass  Envelope de erro
+
+Sub-folder 24 - Bloquear exclusão do comentário alheio
+
+  DELETE http://127.0.0.1:51318/api/comments/1 [403 Forbidden, 702 B, 5 ms]
+  Pass  HTTP 403
+  Pass  Envelope de erro
+
+Sub-folder 25 - Editar comentário próprio
+
+  PATCH http://127.0.0.1:51318/api/comments/1 [200 OK, 812 B, 4 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 26 - Recusar publicação vazia
+
+  POST http://127.0.0.1:51318/api/posts [400 Bad Request, 733 B, 3 ms]
+  Pass  HTTP 400
+  Pass  Envelope de erro
+
+Sub-folder 27 - Recusar autoria enviada pelo cliente
+
+  POST http://127.0.0.1:51318/api/posts [400 Bad Request, 717 B, 3 ms]
+  Pass  HTTP 400
+  Pass  Envelope de erro
+
+Sub-folder 28 - Recusar identificador inválido
+
+  GET http://127.0.0.1:51318/api/posts/abc [400 Bad Request, 735 B, 5 ms]
+  Pass  HTTP 400
+  Pass  Envelope de erro
+
+Sub-folder 29 - Recurso inexistente
+
+  GET http://127.0.0.1:51318/api/posts/2147483647 [404 Not Found, 671 B, 4 ms]
+  Pass  HTTP 404
+  Pass  Envelope de erro
+
+Sub-folder 30 - Recusar paginação inválida
+
+  GET http://127.0.0.1:51318/api/posts?page=0&limit=101 [400 Bad Request, 726 B, 3 ms]
+  Pass  HTTP 400
+  Pass  Envelope de erro
+
+Sub-folder 31 - Excluir comentário próprio
+
+  DELETE http://127.0.0.1:51318/api/comments/1 [204 No Content, 496 B, 4 ms]
+  Pass  HTTP 204
+
+Sub-folder 32 - Excluir publicação própria
+
+  DELETE http://127.0.0.1:51318/api/posts/1 [204 No Content, 496 B, 3 ms]
+  Pass  HTTP 204
+
+Sub-folder 33 - Confirmar exclusão
+
+  GET http://127.0.0.1:51318/api/posts/1 [404 Not Found, 671 B, 2 ms]
+  Pass  HTTP 404
+  Pass  Envelope de erro
+
+Folder 02 - Uploads (selecionar arquivos antes de executar)
+Sub-folder 01 - Enviar avatar válido (selecionar imagem)
+
+  POST http://127.0.0.1:51318/api/users/me/avatar [200 OK, 835 B, 18 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 02 - Acessar avatar salvo
+
+  GET http://127.0.0.1:51318/uploads/b83041d8-1677-4104-b10a-e88c8b91c319.png [200 OK, 757 B, 3 ms]
+  Pass  HTTP 200
+
+Sub-folder 03 - Substituir avatar (selecionar outra imagem)
+
+  POST http://127.0.0.1:51318/api/users/me/avatar [200 OK, 835 B, 13 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 04 - Excluir avatar
+
+  DELETE http://127.0.0.1:51318/api/users/me/avatar [204 No Content, 496 B, 4 ms]
+  Pass  HTTP 204
+
+Sub-folder 05 - Criar publicação com imagem
+
+  POST http://127.0.0.1:51318/api/posts [201 Created, 929 B, 16 ms]
+  Pass  HTTP 201
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 06 - Substituir imagem da publicação
+
+  PATCH http://127.0.0.1:51318/api/posts/2 [200 OK, 924 B, 13 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+
+Sub-folder 07 - Remover imagem da publicação
+
+  PATCH http://127.0.0.1:51318/api/posts/2 [200 OK, 877 B, 5 ms]
+  Pass  HTTP 200
+  Pass  Envelope de sucesso
+  Pass  Resposta não expõe hash da senha
+  Pass  Imagem removida
+
+Sub-folder 08 - Excluir publicação de imagem
+
+  DELETE http://127.0.0.1:51318/api/posts/2 [204 No Content, 496 B, 3 ms]
+  Pass  HTTP 204
+
+Sub-folder 09 - Recusar arquivo incompatível (selecionar .txt)
+
+  POST http://127.0.0.1:51318/api/users/me/avatar [415 Unsupported Media Type, 741 B, 3 ms]
+  Pass  HTTP 415
+  Pass  Envelope de erro
+
+Sub-folder 10 - Recusar conteúdo falso (selecionar .png falso)
+
+  POST http://127.0.0.1:51318/api/users/me/avatar [415 Unsupported Media Type, 773 B, 3 ms]
+  Pass  HTTP 415
+  Pass  Envelope de erro
+
+Sub-folder 11 - Recusar arquivo acima de 5 MB
+
+  POST http://127.0.0.1:51318/api/users/me/avatar [413 Payload Too Large, 705 B, 9 ms]
+  Pass  HTTP 413
+  Pass  Envelope de erro
+Generating run report [json]...
+Saving run report [json]...
+Report created successfully! (Resumo sem tokens em docs/evidencias-postman.json; relatório bruto temporário removido.)
+
+-------------------------------------------------------------------
+|                         |          executed |            failed |
+--------------------------+-------------------+--------------------
+|              iterations |                 1 |                 0 |
+--------------------------+-------------------+--------------------
+|                requests |                45 |                 0 |
+--------------------------+-------------------+--------------------
+|            test-scripts |                45 |                 0 |
+--------------------------+-------------------+--------------------
+|      prerequest-scripts |                 1 |                 0 |
+--------------------------+-------------------+--------------------
+|              assertions |               105 |                 0 |
+-------------------------------------------------------------------
+| total run duration: 876 ms                                      |
+-------------------------------------------------------------------
+| total data received: 6.76 KB (approx)                           |
+-------------------------------------------------------------------
+| average response time: 6 ms [min: 2 ms, max: 41 ms, s.d.: 6 ms] |
+-------------------------------------------------------------------

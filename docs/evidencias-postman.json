@@ -1,0 +1,17 @@
+{
+  "executed_at": "2026-11-24T09:33:21.625Z",
+  "timezone": "America/Sao_Paulo",
+  "command": "npm run test:postman -- --report",
+  "database": "PostgreSQL 19.0 on aarch64-apple-darwin24.6.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.5), 64-bit",
+  "isolated_database": true,
+  "requests": {
+    "total": 45,
+    "failed": 0
+  },
+  "assertions": {
+    "total": 105,
+    "failed": 0
+  },
+  "failures": [],
+  "note": "Coleção executada pelo Postman CLI, sem operar a interface gráfica do Postman. Tokens e respostas não são exportados."
+}

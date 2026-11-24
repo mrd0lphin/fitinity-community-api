@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: fitinity
+      POSTGRES_USER: fitinity
+      POSTGRES_PASSWORD: fitinity_local_only
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - fitinity_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fitinity -d fitinity"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  fitinity_data:

@@ -1,0 +1,42 @@
+
+> fitinity-community-api@1.0.0 test
+> node scripts/test.js
+
+PostgreSQL real temporário iniciado para testes (fitinity_test).
+Migração aplicada: 001_initial.sql
+PostgreSQL 19.0 on aarch64-apple-darwin24.6.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.5), 64-bit
+▶ API Fitinity Community — integração com PostgreSQL real
+  ✔ expõe a verificação de saúde sem exigir autenticação (25.138666ms)
+  ✔ cadastra usuário, normaliza e-mail e persiste apenas o hash bcrypt (25.140042ms)
+  ✔ impede e-mails duplicados inclusive quando a capitalização muda (23.164791ms)
+  ✔ valida os campos do cadastro e o limite de 72 bytes do bcrypt (18.494417ms)
+  ✔ realiza login, emite JWT com expiração e rejeita credenciais incorretas (126.056042ms)
+  ✔ protege rotas contra token ausente, inválido, expirado e com claims/algoritmo incorretos (26.537625ms)
+  ✔ bloqueia leituras, escritas e uploads privados sem token antes de persistir dados (15.75125ms)
+  ✔ consulta e atualiza somente o próprio perfil e mantém unicidade do e-mail (39.074083ms)
+  ✔ cria, lista, consulta, edita e exclui uma publicação sem expor o hash do autor (45.80225ms)
+  ✔ bloqueia alterações e exclusões de publicações de outro usuário (32.889042ms)
+  ✔ rejeita autoria injetada pelo cliente e mantém os dados recebidos como valores SQL (30.598083ms)
+  ✔ pagina publicações e rejeita paginação inválida (39.681917ms)
+  ✔ valida conteúdo, IDs, corpos vazios e recursos inexistentes (35.7155ms)
+  ✔ cria, lista, edita e exclui comentários com controle de propriedade (45.782708ms)
+  ✔ valida comentários e não permite comentar em publicação inexistente (32.468834ms)
+  ✔ torna curtidas idempotentes e mantém a restrição única no PostgreSQL (43.168625ms)
+  ✔ remove curtidas e comentários relacionados quando uma publicação é excluída (31.767917ms)
+  ✔ aceita JPEG, PNG e WebP reais para avatar e remove arquivos substituídos (99.79725ms)
+  ✔ rejeita extensão, MIME, assinatura e conteúdo de imagem incompatíveis sem deixar arquivos (29.634875ms)
+  ✔ rejeita arquivos acima de 5 MB e campos de upload inesperados (27.227959ms)
+  ✔ cria, substitui, remove e exclui imagens de publicações sem deixar arquivos órfãos (57.359792ms)
+  ✔ preserva imagem existente em alterações inválidas ou sem autorização (41.372792ms)
+Erro interno na API: Falha controlada de persistência no teste
+  ✔ remove o novo arquivo quando o PostgreSQL rejeita a criação de publicação (32.4245ms)
+  ✔ padroniza JSON inválido, rotas desconhecidas e não expõe diretórios de uploads (18.695042ms)
+✔ API Fitinity Community — integração com PostgreSQL real (981.17475ms)
+ℹ tests 24
+ℹ suites 1
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1638.734959
