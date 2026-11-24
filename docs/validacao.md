@@ -17,7 +17,7 @@ Este arquivo distingue execução automatizada, verificação HTTP e demonstraç
 | Saúde e documentação HTTP | Respostas 200 confirmadas | /health, /docs/, /docs/swagger-ui-init.js e /openapi.json. |
 | Login e perfil privado no servidor iniciado | Confirmados por requisições HTTP | Login da conta demonstrativa e GET /api/users/me com Bearer; token não incluído nos logs de entrega. |
 | Higiene do Git | Verificada | .env, node_modules e .local ignorados; uploads versiona somente .gitkeep. |
-| Git local e GitHub | Branch main e identidade configuradas; versão final registrada em commit local | Publicação no GitHub aguarda conexão da conta; nenhum remote ou push foi presumido. |
+| Git local e GitHub | Código publicado em repositório público; arquivos ocultos complementados após conferência | [mrd0lphin/fitinity-community-api](https://github.com/mrd0lphin/fitinity-community-api); publicação pela interface web, sem envio autenticado pelo terminal. |
 | Collection Runner do Postman | Pendente de execução manual | Salvar relatório ou captura após operação pela interface. |
 | Upload manual pelo Postman/Swagger | Pendente de execução manual | Selecionar arquivos e registrar resposta e acesso. |
 | Inspeção do Figma | Não realizada | URL fornecida ficou inacessível neste ambiente; não houve verificação visual do protótipo. |
