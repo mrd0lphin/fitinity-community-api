@@ -1,5 +1,7 @@
 # API Fitinity Community
 
+Repositório público para entrega: [mrd0lphin/fitinity-community-api](https://github.com/mrd0lphin/fitinity-community-api).
+
 Backend da atividade final de Desenvolvimento de Sistemas, com cadastro, JWT, perfis, publicações, imagens, curtidas e comentários. Entrega informada: **02/12/2026 às 23:59 (Brasília)**.
 
 O PDF do professor define o escopo. O protótipo do Figma não pôde ser inspecionado neste ambiente; a análise foi feita a partir das seis páginas do PDF. Não há frontend próprio. Deploy depende de solicitação do professor.
@@ -167,7 +169,7 @@ postman/         coleção e ambiente sem segredos
 - [Resultados e pendências de validação](docs/validacao.md).
 - [Contrato dos endpoints](docs/openapi.json).
 
-O Git local foi inicializado na branch `main`, com os arquivos preparados para o primeiro commit. `.env`, `node_modules`, `.local` e as imagens enviadas ficam ignorados; somente `uploads/.gitkeep` entra no repositório. A identidade do autor foi configurada com os dados informados e a versão final foi registrada em um commit local. A publicação remota ainda aguarda conexão com o GitHub.
+O Git local foi inicializado na branch `main`, com os arquivos preparados para o primeiro commit. `.env`, `node_modules`, `.local` e as imagens enviadas ficam ignorados; somente `uploads/.gitkeep` entra no repositório. A identidade do autor foi configurada com os dados informados e a versão final foi registrada em um commit local. O código foi publicado no repositório público indicado acima.
 
 ## Concluir o envio ao GitHub
 
@@ -194,7 +196,7 @@ git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 git push -u origin main
 ```
 
-Os comandos acima servem para uma cópia extraída ou para configurar outro autor. Nesta pasta de trabalho, a identidade e o commit local já foram preparados; os comandos de criação do remote e push ainda não foram executados. Após o envio, confira o acesso do professor e registre a URL em docs/validacao.md. A demonstração pela interface do Postman e o ensaio da equipe também permanecem pendentes.
+Os comandos acima servem para uma cópia extraída ou para configurar outro autor. Nesta pasta de trabalho, a identidade e o commit local já foram preparados; o remote está configurado e a publicação foi realizada pela interface do GitHub, sem autenticação Git pelo terminal. Após o envio, confira o acesso do professor e registre a URL em docs/validacao.md. A demonstração pela interface do Postman e o ensaio da equipe também permanecem pendentes.
 
 ## Referências oficiais
 
