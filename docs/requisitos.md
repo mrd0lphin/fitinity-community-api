@@ -21,7 +21,7 @@ Fonte: PDF “Projeto Final — API Fitinity Community”, seis páginas, e avis
 
 ## Matriz de cobertura
 
-A implementação foi verificada por 24 testes de integração em PostgreSQL real, 45 requisições/105 asserções pelo Postman CLI, validação do OpenAPI e requisições HTTP ao servidor iniciado. Os [logs de integração](evidencias/integracao.txt), [logs do Postman CLI](evidencias/postman-cli.txt) e [registro de validação](validacao.md) sustentam os estados abaixo. A demonstração gráfica, o ensaio e a publicação no GitHub permanecem pendentes.
+A implementação foi verificada por 24 testes de integração em PostgreSQL real, 45 requisições/105 asserções pelo Postman CLI, validação do OpenAPI e requisições HTTP ao servidor iniciado. Os [logs de integração](evidencias/integracao.txt), [logs do Postman CLI](evidencias/postman-cli.txt) e [registro de validação](validacao.md) sustentam os estados abaixo. A publicação no GitHub foi conferida; a demonstração gráfica e o ensaio permanecem a cargo da equipe.
 
 | ID | Requisito | Implementação/contrato | Evidência/estado |
 | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ A implementação foi verificada por 24 testes de integração em PostgreSQL rea
 | R16 | Testes manuais | postman/ | Coleção validada pelo CLI: 45 requisições/105 asserções passaram; interface gráfica ainda a demonstrar. |
 | R17 | Execução reproduzível | README; migrations; scripts | Dependências instaladas; migrations/seed executados duas vezes sem duplicar dados; npm start e login/perfil verificados. |
 | R18 | Apresentação técnica | guia-tecnico.md; demonstracao.md | Ensaio pela equipe, ainda a realizar. |
-| R19 | Código no GitHub | Git local na branch main | Identidade configurada e commit local finalizado; remote e publicação aguardam conexão com o GitHub. |
+| R19 | Código no GitHub | Git local na branch main | Código publicado em https://github.com/mrd0lphin/fitinity-community-api; README e arquivos ocultos conferidos. |
 | R20 | Deploy se solicitado | Fora do escopo atual | Confirmar somente se houver exigência do professor. |
 
 ## Relação com a avaliação
