@@ -4,8 +4,6 @@ Repositório público para entrega: [mrd0lphin/fitinity-community-api](https://g
 
 Backend da atividade final de Desenvolvimento de Sistemas, com cadastro, JWT, perfis, publicações, imagens, curtidas e comentários. Entrega informada: **02/12/2026 às 23:59 (Brasília)**.
 
-O PDF do professor define o escopo. O protótipo do Figma não pôde ser inspecionado neste ambiente; a análise foi feita a partir das seis páginas do PDF. Não há frontend próprio. Deploy depende de solicitação do professor.
-
 Verificação em 24/11/2026: **24 testes de integração** e **45 requisições com 105 asserções pelo Postman CLI** passaram. A sintaxe de 22 arquivos JavaScript, o OpenAPI e os JSONs foram validados. A API foi iniciada e suas rotas de saúde, documentação, login e perfil foram verificadas por HTTP. Veja os [logs e pendências](docs/validacao.md).
 
 ## Requisitos e decisões
